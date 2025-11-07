@@ -1,0 +1,41 @@
+<html> 
+<body> 
+<script> 
+    document.write("Grouping in Regular Expressions <b></b><br><br>"); 
+    document.write("Optional Group:<br>"); 
+    let match = 'a'.match(/a(z)?(c)?/); 
+ 
+    document.write(match.length, "<br>"); // 3 
+    document.write(match[0], "<br>"); // a (whole match) 
+    document.write(match[1], "<br>"); // undefined 
+    document.write(match[2], "<br>"); // undefined 
+</script> 
+ 
+<script> 
+    document.write("Name Capturing Group:<br>"); 
+    let dateRegexp = /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0
+9]{2})/; 
+    let str = "2023-07-30"; 
+ 
+    let groups = str.match(dateRegexp).groups; 
+ 
+    document.write(groups.year, "<br>"); // 2019 
+    document.write(groups.month, "<br>"); // 04 
+    document.write(groups.day, "<br>"); // 30 
+</script> 
+ 
+<script> 
+    document.write("Non Capturing Group:<br>"); 
+    let str1 = "Gogogo John!"; 
+ 
+    let regexp = /(?:go)+ (\w+)/i; 
+ 
+    let result = str1.match(regexp); 
+ 
+    document.write(result[0], "<br>"); 
+    document.write(result[1], "<br>"); // John 
+    document.write(result.length, "<br>"); // 2 (no more items in the 
+array) 
+</script> 
+</body> 
+</html>
