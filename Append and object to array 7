@@ -1,0 +1,38 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+EXPERIMENT NO. 07 
+<title>Append Object & Check for Array</title> 
+</head> 
+<body> 
+<h2>Append Object to Array & Check Array Type</h2> 
+<div id="output"></div> 
+<script> 
+var output = document.getElementById("output"); 
+// Step 1: Create an array 
+var dataArray = [ 
+{ name: "Alice", age: 25 }, 
+{ name: "Bob", age: 30 } 
+]; 
+output.innerHTML += "<p><b>Original Array:</b> " + JSON.stringify(dataArray) + "</p>"; 
+// Step 2: Create an object to append 
+var newObject = { name: "Charlie", age: 28 }; 
+// Step 3: Append the object to the array 
+dataArray.push(newObject); 
+output.innerHTML += "<p><b>Array after appending object:</b> " + JSON.stringify(dataArray) + 
+"</p>"; 
+// Step 4: Check if 'dataArray' is an array 
+if (Array.isArray(dataArray)) { 
+output.innerHTML += "<p><b>Yes, 'dataArray' is an array.</b></p>"; 
+} else { 
+output.innerHTML += "<p><b>No, 'dataArray' is NOT an array.</b></p>"; 
+} 
+// Optional: Check if 'newObject' is an array 
+if (Array.isArray(newObject)) { 
+output.innerHTML += "<p><b>'newObject' is an array.</b></p>"; 
+} else { 
+output.innerHTML += "<p><b>'newObject' is NOT an array (it's an object).</b></p>"; 
+} 
+</script> 
+</body> 
+</html> 
