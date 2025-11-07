@@ -1,0 +1,21 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>Simple Home Page</title> 
+</head> 
+<body> 
+EXPERIMENT NO. 08 
+<h1>Welcome to My Website</h1> 
+<p>Move your mouse over the text or click on the input box to change background color.</p> 
+<!-- Mouse over text --> 
+<p id="hoverText"  
+onmouseover="document.body.style.backgroundColor='lightblue';"  
+onmouseout="document.body.style.backgroundColor='white';"> 
+Hover over this text 
+</p> 
+<!-- Focus input --> 
+<input type="text" placeholder="Click here (focus)"  
+onfocus="document.body.style.backgroundColor='pink';"  
+onblur="document.body.style.backgroundColor='white';"> 
+</body> 
+</html>
