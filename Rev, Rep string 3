@@ -1,0 +1,21 @@
+<html> 
+<head> 
+Reverse String 
+Replace Characters of a String 
+<title>Reverse a String</title> 
+</head> 
+<body> 
+<script type="text/javascript"> 
+var str = prompt("Enter a String"); 
+var strlen = str.length; 
+for(var i = strlen-1;i>=0;i--) { 
+console.log(str[i]); 
+document.write(str[i]); 
+} 
+document.write("<br>Replace characters of a string :-<br>"); 
+var string = 'I have a red bike and black car'; 
+var newString = string.replace('red','blue'); 
+document.write(newString); 
+</script> 
+</body> 
+</html>
