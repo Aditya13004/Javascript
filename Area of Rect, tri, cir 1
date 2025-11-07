@@ -1,0 +1,24 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8" /> 
+    <title>My EXP1</title> 
+</head> 
+<body> 
+    <h1>How to calculate area</h1> 
+    <script type="text/javascript"> 
+        let l = parseFloat(prompt("Enter length of rectangle:")); 
+        let b = parseFloat(prompt("Enter breadth of rectangle:")); 
+        let h = parseFloat(prompt("Enter height of rectangle:")); 
+        let r = parseFloat(prompt("Enter radius of circle:")); 
+ 
+        let arearect = l * b; 
+        let areatri = 0.5 * b * h; 
+        let areacir = 3.14 * r * r; 
+ 
+        console.log("Area of rectangle is: " + arearect); 
+        console.log("Area of triangle is: " + areatri); 
+        console.log("Area of circle is: " + areacir); 
+    </script> 
+</body> 
+</html> 
