@@ -1,0 +1,147 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <title>Simple JavaScript Calculator</title> 
+  <style> 
+    body { 
+      font-family: Arial, sans-serif; 
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee); 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      height: 100vh; 
+    } 
+    .calculator { 
+      background: #fff; 
+      padding: 20px; 
+      border-radius: 15px; 
+      box-shadow: 0px 10px 20px rgba(0,0,0,0.2); 
+      width: 300px; 
+      text-align: center; 
+    } 
+    input[type="text"] { 
+      width: 90%; 
+      padding: 10px; 
+      font-size: 18px; 
+      margin-bottom: 10px; 
+      border-radius: 8px; 
+      border: 1px solid #ccc; 
+    } 
+    button { 
+      width: 60px; 
+      height: 50px; 
+      margin: 5px; 
+      font-size: 18px; 
+      border-radius: 8px; 
+      border: none; 
+      cursor: pointer; 
+      transition: 0.3s; 
+    } 
+    button:hover { 
+      opacity: 0.8; 
+    } 
+    .result-tab { 
+      margin-top: 15px; 
+      background: #f0f0f0; 
+      padding: 10px; 
+      border-radius: 8px; 
+      font-size: 20px; 
+      min-height: 40px; 
+    } 
+    .operator { background-color: #ffb347; } 
+    .number { background-color: #6a82fb; color: white; } 
+    .equal { background-color: #f78ca0; color: white; width: 130px; } 
+    .clear { background-color: #f4f4f4; width: 130px; } 
+  </style> 
+</head> 
+<body> 
+ 
+<div class="calculator"> 
+  <h2>JS Calculator</h2> 
+  <input type="text" id="input" placeholder="Enter number(s)"> 
+   
+  <div> 
+    <!-- Number Buttons --> 
+    <button class="number" onclick="appendNumber('1')">1</button> 
+    <button class="number" onclick="appendNumber('2')">2</button> 
+    <button class="number" onclick="appendNumber('3')">3</button> 
+    <button class="operator" onclick="appendOperator('+')">+</button> 
+  </div> 
+  <div> 
+    <button class="number" onclick="appendNumber('4')">4</button> 
+    <button class="number" onclick="appendNumber('5')">5</button> 
+    <button class="number" onclick="appendNumber('6')">6</button> 
+    <button class="operator" onclick="appendOperator('-')">-</button> 
+  </div> 
+  <div> 
+    <button class="number" onclick="appendNumber('7')">7</button> 
+    <button class="number" onclick="appendNumber('8')">8</button> 
+    <button class="number" onclick="appendNumber('9')">9</button> 
+    <button class="operator" onclick="appendOperator('*')">×</button> 
+  </div> 
+  <div> 
+    <button class="number" onclick="appendNumber('0')">0</button> 
+    <button class="operator" onclick="appendOperator('.')">.</button> 
+    <button class="operator" onclick="squareNumber()">x²</button> 
+    <button class="operator" onclick="appendOperator('/')">÷</button> 
+  </div> 
+  <div> 
+    <button class="equal" onclick="calculate()">=</button> 
+    <button class="clear" onclick="clearInput()">C</button> 
+  </div> 
+ 
+  <div class="result-tab" id="result">Result: </div> 
+</div> 
+ 
+<script> 
+  let input = document.getElementById('input'); 
+  let resultTab = document.getElementById('result'); 
+ 
+  function appendNumber(num) { 
+    input.value += num; 
+  } 
+ 
+  function appendOperator(op) { 
+    if(input.value === '') { 
+      alert('Enter a number first!'); 
+      return; 
+    } 
+    input.value += op; 
+  } 
+ 
+  function squareNumber() { 
+    if(input.value === '' || isNaN(input.value)) { 
+      alert('Enter a valid number to square!'); 
+      return; 
+    } 
+    input.value = Math.pow(Number(input.value), 2); 
+  } 
+ 
+  function calculate() { 
+    if(input.value === '') { 
+      alert('Enter a valid expression!'); 
+      return; 
+    } 
+    try { 
+      // Evaluate the expression 
+      let result = eval(input.value); 
+      if(isNaN(result)) { 
+        alert('Invalid calculation!'); 
+        resultTab.innerHTML = 'Result: Error'; 
+      } else { 
+        resultTab.innerHTML = 'Result: ' + result; 
+      } 
+    } catch { 
+      alert('Invalid expression!'); 
+      resultTab.innerHTML = 'Result: Error'; 
+    } 
+  } 
+ 
+  function clearInput() { 
+    input.value = ''; 
+    resultTab.innerHTML = 'Result: '; 
+  } 
+</script> 
+ 
+</body> 
+</html>
